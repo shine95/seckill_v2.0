@@ -1,0 +1,64 @@
+server:
+  port: 8761
+
+
+#Themeleaf
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    encoding: UTF-8
+    mode: HTML5
+    enabled: true
+
+    #Druid
+  datasource:
+    url: jdbc:mysql://101.132.159.142:3306/seckill?useUnicode=true&characterEncoding=utf-8
+    username: shine
+    password: 133331
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 2
+    initalSize: 1
+    maxWait: 60000
+    minldle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+    # Redis
+redis :
+  host: 101.132.159.142
+  port: 6379
+  timeout: 10
+  password: 133331
+  poolMaxTotal: 1000
+  poolMaxIdle: 500
+
+
+# redis:
+#   host: 101.132.159.142
+#   port: 6379
+#   timeout: 3
+#   password: 13331
+#  pool.max: 10
+#  poolMaxIdle: 10
+#  poolMaxWait: 3
+
+#MyBatis
+mybatis:
+  type-aliases-package: com.shine.seckill.model
+  configuration:
+  #下划线转换驼峰
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+  #配置文件扫描
+  mapper-locations: classpath:com/shine/seckill/dao/*.xml
