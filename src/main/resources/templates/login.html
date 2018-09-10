@@ -83,17 +83,15 @@
                 layer.closeAll();
                 console.log(data);
                 if (data.code == 0) {
-                    layer.msg("success");
+                   // layer.msg("登录成功", {time: 1000}, function () {
+                       window.location.href = "/goods/to_list";
+                   // });
+               // } else {
+               //     alert(data.msg);
+               // }
                 } else {
                     layer.msg(data.msg);
                 }
-//                if (data.code == 0) {
-//                    layer.msg("登录成功", {time: 1000}, function () {
-//                        window.location.href = "/goods/to_list";
-//                    });
-//                } else {
-//                    alert(data.msg);
-//                }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 layer.closeAll();
