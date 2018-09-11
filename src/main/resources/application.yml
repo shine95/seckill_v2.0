@@ -42,16 +42,6 @@ redis :
   poolMaxTotal: 1000
   poolMaxIdle: 500
 
-
-# redis:
-#   host: 101.132.159.142
-#   port: 6379
-#   timeout: 3
-#   password: 13331
-#  pool.max: 10
-#  poolMaxIdle: 10
-#  poolMaxWait: 3
-
 #MyBatis
 mybatis:
   type-aliases-package: com.shine.seckill.model
