@@ -6,6 +6,7 @@ import com.shine.seckill.service.MiaoshaUserService;
 import com.shine.seckill.service.UserService;
 import com.shine.seckill.util.ValidatorUtil;
 import com.shine.seckill.vo.LoginVo;
+import com.sun.jdi.LongValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +34,17 @@ public class LoginController {
 
     @RequestMapping("/do_login")
     @ResponseBody
-    public Result<Boolean> doLogin(HttpServletResponse response, @Valid LoginVo loginVo){
+    public Result<Boolean> doLogin( HttpServletResponse response, @Valid LoginVo loginVo){
         log.info(loginVo.toString());
         //登录
-        userService.login(response,loginVo);
+        boolean login = userService.login(response, loginVo);
+        Long id = Long.valueOf(loginVo.getMobile());
+        if (login) {
+            int i = userService.setLoginCount(id);
+            if (i>0) {
+                System.out.println("添加登录次数成功！");
+            }
+        }
         return Result.success(true);
     }
 

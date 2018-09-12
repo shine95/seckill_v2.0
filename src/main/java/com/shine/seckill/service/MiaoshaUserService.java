@@ -31,6 +31,10 @@ public class MiaoshaUserService {
         return miaoshaUserDao.getById(id);
     }
 
+    int setLoginCount(long id){
+        return miaoshaUserDao.setLoginCount(id);
+    }
+
     public boolean login(HttpServletResponse response, LoginVo loginVo) {
         if (loginVo == null) {
             throw new GlobalException(CodeMsg.SERVER_ERROR);
