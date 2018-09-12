@@ -31,7 +31,7 @@ public class MiaoshaUserService {
         return miaoshaUserDao.getById(id);
     }
 
-    int setLoginCount(long id){
+    public int setLoginCount(long id){
         return miaoshaUserDao.setLoginCount(id);
     }
 
