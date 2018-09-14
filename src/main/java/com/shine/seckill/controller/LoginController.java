@@ -1,19 +1,14 @@
 package com.shine.seckill.controller;
 
-import com.shine.seckill.result.CodeMsg;
 import com.shine.seckill.result.Result;
 import com.shine.seckill.service.MiaoshaUserService;
-import com.shine.seckill.service.UserService;
-import com.shine.seckill.util.ValidatorUtil;
 import com.shine.seckill.vo.LoginVo;
-import com.sun.jdi.LongValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -38,7 +33,7 @@ public class LoginController {
         log.info(loginVo.toString());
         //登录
         boolean login = userService.login(response, loginVo);
-        Long id = Long.valueOf(loginVo.getMobile());
+        long id = Long.valueOf(loginVo.getMobile());
         if (login) {
             int i = userService.setLoginCount(id);
             if (i>0) {
