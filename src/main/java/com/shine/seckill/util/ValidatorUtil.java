@@ -5,6 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 自制手机验证
+ */
 public class ValidatorUtil {
 
     public static final Pattern mobile_pattern = Pattern.compile("1\\d{10}");

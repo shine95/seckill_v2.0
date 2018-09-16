@@ -71,7 +71,6 @@
         var str = salt.charAt(0) + salt
             .charAt(1) + inputPass + salt.charAt(5) + salt.charAt(4);
         var password = md5(str);
-        console.log(str);
         $.ajax({
             type: "POST",
             url: "/login/do_login",
@@ -81,14 +80,8 @@
             },
             success: function (data) {
                 layer.closeAll();
-                console.log(data);
                 if (data.code == 0) {
-                   // layer.msg("登录成功", {time: 1000}, function () {
                        window.location.href = "/goods/to_list";
-                   // });
-               // } else {
-               //     alert(data.msg);
-               // }
                 } else {
                     layer.msg(data.msg);
                 }

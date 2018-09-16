@@ -34,13 +34,9 @@ public class LoginController {
         //登录
         boolean login = userService.login(response, loginVo);
         long id = Long.valueOf(loginVo.getMobile());
-        if (login) {
-            int i = userService.setLoginCount(id);
-            if (i>0) {
-                System.out.println("添加登录次数成功！");
-            }
-        }
-        return Result.success(true);
+        if (login)
+            userService.setLoginCount(id);
+            return Result.success(true);
     }
 
 }

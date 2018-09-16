@@ -11,6 +11,16 @@ public class GoodsVo extends Goods {
     private Date startDate;
     private Date endDate;
 
+    @Override
+    public String toString() {
+        return "GoodsVo{" +
+                "miaoshaPrice=" + miaoshaPrice +
+                ", stockCount=" + stockCount +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
+    }
+
     public Double getMiaoshaPrice() {
         return miaoshaPrice;
     }

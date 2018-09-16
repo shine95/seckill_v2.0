@@ -17,4 +17,7 @@ public class GoodsService {
         return goodDao.listGoodsVo();
     }
 
+    public GoodsVo getGoodVoByGoodsId(long goodsId) {
+        return goodDao.getGoodVoByGoodsId(goodsId);
+    }
 }

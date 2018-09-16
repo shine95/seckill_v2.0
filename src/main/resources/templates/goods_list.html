@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<!-- jquery -->
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<!-- jquery-validator -->
+<script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
+<script type="text/javascript" th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
+<!-- layer -->
+<script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+<!-- md5.js -->
+<script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
+<!-- common.js -->
+<script type="text/javascript" th:src="@{/js/common.js}"></script>
+
 <head>
     <meta charset="UTF-8">
     <title>商品列表</title>
 </head>
 <body>
-<div class="panel panel-default" style="width: 50%;margin: 0 auto ">
+<div class="panel panel-default">
     <div class="panel-heading"><h2>秒杀商品列表</h2></div>
     <table class="table" id="goodslist" style="border:black solid 1px">
-        <tr><td>商品名称</td><td>商品图片</td><td>商品原价</td><td>秒杀价</td><td>库存数量</td><td>详情</td></tr>
+        <tr><th>商品名称</th><th>商品图片</th><th>商品原价</th><th>秒杀价</th><th>库存数量</th><th>详情</th></tr>
         <tr  th:each="goods,goodsStat : ${goodsList}">
             <td th:text="${goods.goodsName}"></td>
             <td ><img th:src="@{${goods.goodsImg}}" width="100" height="100" /></td>
